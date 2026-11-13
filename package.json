@@ -1,0 +1,7 @@
+{
+  "name": "hr-smart-ocr",
+  "private": true,
+  "scripts": {
+    "check:functions": "node --check functions/index.js"
+  }
+}
