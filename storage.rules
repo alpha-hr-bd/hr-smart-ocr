@@ -1,9 +1,5 @@
 rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /paymentProof/{uid}/{fileName} {
-      allow create: if request.auth != null && request.auth.uid == uid && request.resource.size < 5 * 1024 * 1024 && request.resource.contentType.matches('image/(jpeg|png|webp)');
-      allow read, update, delete: if request.auth != null && request.auth.uid == uid;
-    }
-  }
-}
+service firebase.storage { match /b/{bucket}/o {
+ match /paymentProof/{uid}/{requestId} { allow create: if request.auth != null && request.auth.uid == uid && requestId.matches('^[a-f0-9-]{30,40}$') && request.resource.size <= 5 * 1024 * 1024 && request.resource.contentType.matches('image/(jpeg|png|webp)'); allow read, update, delete: if false; }
+ match /{allPaths=**} { allow read, write: if false; }
+}}
