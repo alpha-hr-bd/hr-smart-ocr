@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <title>HR Smart OCR</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">HR</span><span>Smart <b>OCR</b></span></a>
+    <div class="user-area"><span id="welcomeName">Welcome!</span><button id="logoutBtn" class="text-button" type="button">Logout</button></div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <p class="eyebrow">FAST TEXT EXTRACTION</p>
+      <h1>Turn images into <span>text.</span></h1>
+      <p>Upload a picture or take one with your camera. Extract English, বাংলা, or mixed text.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="panel upload-panel">
+        <div class="panel-heading"><div><h2>Add an image</h2><p>PNG, JPG, JPEG or WEBP</p></div><span class="step">01</span></div>
+        <input id="imageInput" type="file" accept="image/*" hidden>
+        <input id="cameraInput" type="file" accept="image/*" capture="environment" hidden>
+        <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Choose an image">
+          <div class="upload-icon">↑</div>
+          <strong>Drop your image here</strong>
+          <span>or choose a file from your device</span>
+          <button id="browseBtn" class="button button-primary" type="button">Upload Image</button>
+        </div>
+        <div class="button-row">
+          <button id="cameraBtn" class="button button-light" type="button">▣ Take Image</button>
+          <button id="removeBtn" class="button button-light" type="button" disabled>Remove Image</button>
+        </div>
+        <div id="previewWrap" class="preview-wrap hidden"><img id="previewImage" alt="Selected image preview"></div>
+      </div>
+
+      <div class="panel settings-panel">
+        <div class="panel-heading"><div><h2>OCR settings</h2><p>Choose the language in your image</p></div><span class="step">02</span></div>
+        <label class="field-label" for="languageSelect">Recognition language</label>
+        <select id="languageSelect">
+          <option value="eng">English</option>
+          <option value="ben">বাংলা</option>
+          <option value="eng+ben" selected>English + বাংলা</option>
+        </select>
+        <div class="hint">Mixed language works best when both languages are clearly visible.</div>
+        <button id="scanBtn" class="button button-primary scan-button" type="button" disabled>Start OCR <span>→</span></button>
+        <div class="progress-area hidden" id="progressArea">
+          <div class="progress-top"><span id="progressLabel">Preparing OCR…</span><b id="progressPercent">0%</b></div>
+          <div class="progress-track"><div id="progressBar"></div></div>
+        </div>
+        <p id="statusMessage" class="status" role="status">Choose an image to get started.</p>
+      </div>
+    </section>
+
+    <section class="panel result-panel">
+      <div class="panel-heading"><div><h2>Extracted text</h2><p>Your recognized text will appear here</p></div><span class="step">03</span></div>
+      <textarea id="resultText" placeholder="Your OCR result will appear here…" spellcheck="false"></textarea>
+      <div class="result-actions">
+        <span id="characterCount">0 characters</span>
+        <div class="button-row">
+          <button id="clearTextBtn" class="button button-light" type="button">Clear</button>
+          <button id="downloadBtn" class="button button-light" type="button">Download TXT</button>
+          <button id="copyBtn" class="button button-primary" type="button">Copy Text</button>
+        </div>
+      </div>
+    </section>
+    <footer>HR Smart OCR <span>•</span> Made by Alpha.HR</footer>
+  </main>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <title>Login • HR Smart OCR</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+  <main class="login-shell">
+    <a class="brand login-brand" href="activation.html"><span class="brand-mark">HR</span><span>Smart <b>OCR</b></span></a>
+    <section class="login-card">
+      <div class="login-symbol">HR</div>
+      <p class="eyebrow">WELCOME BACK</p>
+      <h1>Unlock your OCR</h1>
+      <p class="login-description">Enter your name and your lifetime OCR code to continue.</p>
+      <form id="loginForm">
+        <label class="field-label" for="customerName">Your name</label>
+        <input id="customerName" type="text" maxlength="60" placeholder="Enter your name" autocomplete="name" required>
+        <label class="field-label" for="ocrCode">OCR Code</label>
+        <input id="ocrCode" type="text" maxlength="9" minlength="9" placeholder="OUYEC93NR" autocomplete="off" required>
+        <button id="loginBtn" class="button button-primary login-submit" type="submit">Login <span>→</span></button>
+        <p id="loginMessage" class="status" role="status"></p>
+      </form>
+      <p class="login-footnote">Your code is checked online. Once activated on this browser, your name will be remembered.</p>
+    </section>
+    <p class="copyright">HR Smart OCR • Made by Alpha.HR</p>
+  </main>
+  <script type="module" src="js/activation.js"></script>
+</body>
+</html>
